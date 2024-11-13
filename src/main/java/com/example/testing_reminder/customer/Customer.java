@@ -5,11 +5,19 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.UUID;
 
 @Entity
+@Setter
+@Getter
+@NoArgsConstructor
 @JsonIgnoreProperties(value = {"id"}, allowGetters = true)
+@EqualsAndHashCode(of = {"id","name","surname"})
 public class Customer {
 
     @Id
@@ -29,30 +37,4 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
-    public Customer() {
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
 }
