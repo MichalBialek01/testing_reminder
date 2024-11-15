@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: testing_reminder
+
+stripe:
+  enabled: false
